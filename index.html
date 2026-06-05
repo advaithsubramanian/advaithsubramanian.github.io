@@ -164,7 +164,17 @@
   .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
   .fade-up.visible { opacity: 1; transform: translateY(0); }
 
-  @media (max-width: 900px) {
+.emoji-trigger {
+  cursor: pointer;
+  color: var(--accent);
+  transition: opacity 0.2s ease;
+}
+
+.emoji-trigger:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 900px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { gap: 1.5rem; }
     .container { padding: 0 1.5rem; }
@@ -258,10 +268,24 @@
 
         <div class="divider"></div>
 
-        <p class="outside-inline">
-          Outside of all the school stuff, I sing Carnatic music, am learning to play the guitar, lift heavy things for an hour every day (weightlifting), run cool trails in whatever city I'm in, eat at way too many restaurants and coffee shops, and travel everywhere — usually to find more good food and coffee.
-
-        </p>
+<p class="outside-inline">
+  Outside of all the school stuff, I sing
+  <span class="emoji-trigger" data-emoji="🎵">Carnatic music</span>,
+  am learning to play the
+  <span class="emoji-trigger" data-emoji="🎸">guitar</span>,
+  <span class="emoji-trigger" data-emoji="💪">lift heavy things</span>
+  for an hour every day (weightlifting),
+  <span class="emoji-trigger" data-emoji="🏃">run cool trails</span>
+  in whatever city I'm in,
+  eat at way too many
+  <span class="emoji-trigger" data-emoji="🍝">restaurants</span>
+  and
+  <span class="emoji-trigger" data-emoji="☕">coffee shops</span>,
+  and
+  <span class="emoji-trigger" data-emoji="✈️">travel everywhere</span>
+  — usually to find more good food and coffee.
+</p>
+       
       </div>
     </div>
   </div>
@@ -622,5 +646,32 @@ document.querySelectorAll('.research-cards, .comm-grid, .music-row, .pub-list, .
   parent.querySelectorAll('.fade-up').forEach((child, i) => { child.style.transitionDelay = `${i*60}ms`; });
 });
 </script>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+<script>
+document.querySelectorAll('.emoji-trigger').forEach((el) => {
+  el.addEventListener('mouseenter', (e) => {
+    const emoji = e.target.dataset.emoji;
+
+    confetti({
+      particleCount: 25,
+      spread: 60,
+      scalar: 1.8,
+      origin: {
+        x: Math.random(),
+        y: 0.6
+      },
+      shapes: ['text'],
+      shapeOptions: {
+        text: {
+          value: [emoji]
+        }
+      }
+    });
+  });
+});
+</script>
+
 </body>
 </html>
