@@ -206,28 +206,25 @@
 }
  
 .photo-stack {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;       /* CRITICAL: Prevents images from wrapping to the next line */
-  overflow-x: auto;        /* Allows horizontal swiping/scrolling */
-  scroll-snap-type: x mandatory;
-  gap: 1.2rem;
-  padding: 0 1.5rem;       /* Fixed padding so elements don't squeeze too hard */
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
- 
-.photo-stack::-webkit-scrollbar {
-  display: none;
-}
+    display: flex !important;       /* Forces flexbox layout */
+    flex-direction: row !important; /* Forces items side-by-side */
+    flex-wrap: nowrap !important;   /* ABSOLUTELY forbids items from dropping down */
+    overflow-x: auto !important;    /* Enables horizontal scrolling */
+    scroll-snap-type: x mandatory;
+    gap: 1.2rem;
+    padding: 0 1.5rem;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
 
-/* This is the critical missing piece making them stay on a single row line */
-.photo-stack .photo-item {
-  flex: 0 0 65%;
-  scroll-snap-align: center;
-  display: flex;
-  flex-direction: column;
-}
+  .photo-stack .photo-item {
+    flex: 0 0 75% !important;     /* Shrink: 0, Grow: 0, Base Width: 75% */
+    width: 75% !important;        /* Strict fallback width */
+    max-width: 75% !important;    /* Hard ceiling width */
+    scroll-snap-align: center;
+    box-sizing: border-box;       /* Includes padding/borders in calculation */
+  }
 
 .photo-stack .about-photo-frame {
   width: 100%;
