@@ -136,13 +136,18 @@
   .pub-link { color: var(--text3); text-decoration: none; font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; margin-left: 0.5rem; transition: color 0.2s; }
   .pub-link:hover { color: var(--accent); }
 
-  /* DISTINCTIONS */
+/* DISTINCTIONS */
   #distinctions { padding: 6rem 0; border-top: 1px solid var(--border); }
   .dist-key { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 2.5rem; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.1em; color: var(--text3); }
   .dist-key-item { display: flex; align-items: center; gap: 0.5rem; }
   .dist-key-sym { font-size: 0.85rem; }
-  .dist-flex { display: flex; flex-wrap: wrap; gap: 1rem; }
-  .dist-item { padding: 0.75rem 1.25rem; border: 1px solid var(--border2); font-family: 'Syne', sans-serif; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.03em; position: relative; overflow: hidden; transition: all 0.25s; }
+  
+  /* I added justify-content: flex-start; right here */
+  .dist-flex { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: flex-start; } 
+  
+  /* I added text-align: left; right here */
+  .dist-item { padding: 0.75rem 1.25rem; border: 1px solid var(--border2); font-family: 'Syne', sans-serif; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.03em; position: relative; overflow: hidden; transition: all 0.25s; text-align: left; } 
+  
   .dist-item.national { color: var(--accent4); border-color: rgba(245,166,35,0.4); background: rgba(245,166,35,0.04); }
   .dist-item.national:hover { background: rgba(245,166,35,0.08); }
   .dist-item.research { color: var(--accent2); border-color: rgba(124,106,255,0.35); background: rgba(124,106,255,0.04); }
