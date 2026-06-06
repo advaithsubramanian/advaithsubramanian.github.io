@@ -719,7 +719,15 @@ function draw() {
       const dx = a.x-b.x, dy = a.y-b.y, dist = Math.sqrt(dx*dx+dy*dy);
       if(dist < maxDist) {
         ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
-        ctx.strokeStyle = `rgba(0,212,170,${(1-dist/maxDist)*0.15})`; ctx.lineWidth = 0.5; ctx.stroke();
+const alpha = (1 - dist/maxDist) * 0.35;
+
+if (a.color === '#00d4aa') {
+  ctx.strokeStyle = `rgba(0,212,170,${alpha})`;
+} else if (a.color === '#7c6aff') {
+  ctx.strokeStyle = `rgba(124,106,255,${alpha})`;
+} else {
+  ctx.strokeStyle = `rgba(255,107,107,${alpha})`;
+}
       }
     }
   }
