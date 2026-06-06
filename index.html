@@ -122,8 +122,30 @@
   .c-card p { font-size: 0.92rem; line-height: 1.75; color: var(--text2); }
   .c-card a { color: var(--accent); text-decoration: none; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.75rem; letter-spacing: 0.05em; }
   .c-card a:hover { opacity: 0.7; }
+/* Community card hover — color-matched to each dot */
+.c-card:hover { border-color: var(--border2); background: var(--bg3); }
 
-  /* MUSIC */
+.c-card:has(.c-dot[style*="var(--accent)"]):hover,
+.c-card:has(.c-dot[style*="var(--accent)"]).touch-active {
+  border-color: var(--accent);
+  background: linear-gradient(135deg, rgba(0,212,170,0.04) 0%, transparent 100%);
+}
+
+.c-card:has(.c-dot[style*="var(--accent2)"]):hover,
+.c-card:has(.c-dot[style*="var(--accent2)"]).touch-active {
+  border-color: var(--accent2);
+  background: linear-gradient(135deg, rgba(124,106,255,0.05) 0%, transparent 100%);
+}
+
+.c-card:has(.c-dot[style*="var(--accent4)"]):hover,
+.c-card:has(.c-dot[style*="var(--accent4)"]).touch-active {
+  border-color: var(--accent3);
+  background: linear-gradient(135deg, rgba(245,166,35,0.05) 0%, transparent 100%);
+}
+  
+ 
+ 
+ /* MUSIC */
   #music { padding: 5rem 0; border-top: 1px solid var(--border); }
   .music-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
   .music-card { background: linear-gradient(135deg, var(--bg2), var(--bg3)); border: 1px solid rgba(124,106,255,0.15); padding: 1.75rem; position: relative; overflow: hidden; }
@@ -998,6 +1020,23 @@ document.addEventListener('touchstart', e => {
     cards.forEach(c => c.classList.remove('touch-active'));
   }
 }, { passive: true });
+
+// Touch highlights for community cards
+const cCards = document.querySelectorAll('.c-card');
+
+cCards.forEach(card => {
+  card.addEventListener('touchstart', () => {
+    cCards.forEach(c => c.classList.remove('touch-active'));
+    card.classList.add('touch-active');
+  }, { passive: true });
+});
+
+document.addEventListener('touchstart', e => {
+  if (!e.target.closest('.c-card')) {
+    cCards.forEach(c => c.classList.remove('touch-active'));
+  }
+}, { passive: true });
+
 </script>
 
  
