@@ -208,11 +208,11 @@
 .photo-stack {
   display: flex;
   flex-direction: row;
-  overflow-x: auto;
+  flex-wrap: nowrap;       /* CRITICAL: Prevents images from wrapping to the next line */
+  overflow-x: auto;        /* Allows horizontal swiping/scrolling */
   scroll-snap-type: x mandatory;
   gap: 1.2rem;
-  padding: 0 12%;
-
+  padding: 0 1.5rem;       /* Fixed padding so elements don't squeeze too hard */
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
 }
