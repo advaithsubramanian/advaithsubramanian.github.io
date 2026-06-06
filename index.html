@@ -195,32 +195,35 @@
       gap: 2rem;
     }
 
- .about-photo-wrap {
-  max-width: 100%;
+.photo-stack .about-photo-frame img {
   width: 100%;
-  margin: 0 auto;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
-
+ 
 .photo-stack {
   display: flex;
   flex-direction: row;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   gap: 1rem;
+  padding: 0 12%;
 
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
 }
-
+ 
 .photo-stack::-webkit-scrollbar {
   display: none;
 }
 
 .photo-stack .about-photo-frame {
-  flex: 0 0 100%;
+  flex: 0 0 65%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
   scroll-snap-align: center;
 }
-
     .contact-inner {
       grid-template-columns: 1fr;
       gap: 2rem;
