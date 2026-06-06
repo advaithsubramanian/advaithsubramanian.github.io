@@ -46,8 +46,12 @@
   #about { padding: 8rem 0; border-top: 1px solid var(--border); }
 .about-grid { display: flex; flex-direction: row; gap: 2.5rem; align-items: flex-start; }
  .about-text { flex: 1; }
-.about-photo-wrap { flex: 0 0 220px; width: 220px; order: -1; }
-  .about-photo-wrap { position: relative; width: 100%; }
+.about-photo-wrap {
+  flex: 0 0 220px;
+  width: 220px;
+  order: -1;
+  position: relative;
+}
   .about-photo-frame { position: relative; width: 100%; aspect-ratio: 3/4; background: var(--bg3); border: 1px solid var(--border2); overflow: hidden; }
   .about-photo-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; filter: grayscale(10%); }
   .about-photo-frame::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 60%, rgba(8,12,16,0.7) 100%); }
@@ -341,7 +345,8 @@
           <p class="photo-caption">Somewhere in the PNW</p>
         </div>
    
-  </div>
+  </div> <!-- photo-stack -->
+  </div> <!-- about-photo-wrap -->
        
       <div class="about-text fade-up">
         <h3>Hello! I'm <span>Advaith.</span></h3>
