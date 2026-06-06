@@ -44,8 +44,8 @@
 
   /* ABOUT */
   #about { padding: 8rem 0; border-top: 1px solid var(--border); }
-  .about-grid { display: grid; grid-template-columns: 280px 1fr; gap: 4rem; align-items: start; }
-  .about-photo-wrap { position: relative; }
+  .about-grid { display: flex; flex-direction: row; gap: 4rem; align-items: start; }
+  .about-photo-wrap { position: relative; width: 280px; flex-shrink: 0; }
   .about-photo-frame { position: relative; width: 100%; aspect-ratio: 3/4; background: var(--bg3); border: 1px solid var(--border2); overflow: hidden; }
   .about-photo-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; filter: grayscale(10%); }
   .about-photo-frame::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 60%, rgba(8,12,16,0.7) 100%); }
@@ -271,7 +271,7 @@
     }
 
 .dist-flex {
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .dist-item {
