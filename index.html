@@ -198,7 +198,7 @@
       gap: 2rem;
     }
 
- .photo-stack .about-photo-frame img {
+.photo-stack .about-photo-frame img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -221,12 +221,24 @@
   display: none;
 }
 
-/* This replaces the frame-width constraint with the item-wrapper constraint */
+/* This is the critical missing piece making them stay on a single row line */
 .photo-stack .photo-item {
   flex: 0 0 65%;
   scroll-snap-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
+.photo-stack .about-photo-frame {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+}
+
+.photo-stack .photo-caption {
+  text-align: left;
+  margin-top: 0.4rem;
+}
 .photo-stack .about-photo-frame {
   width: 100%;
   aspect-ratio: 4 / 5;
