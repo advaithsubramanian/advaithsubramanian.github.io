@@ -125,19 +125,25 @@
 /* Community card hover — color-matched to each dot */
 .c-card:hover { border-color: var(--border2); background: var(--bg3); }
 
+/* Community card hover — color-matched to each dot */
+.c-card:hover { border-color: var(--border2); background: var(--bg3); }
+
 .c-card:has(.c-dot[style*="var(--accent)"]):hover,
 .c-card:has(.c-dot[style*="var(--accent)"]).touch-active {
   border-color: var(--accent);
+  background: linear-gradient(135deg, #0a1f1c 0%, #0d1219 100%);
 }
 
 .c-card:has(.c-dot[style*="var(--accent2)"]):hover,
 .c-card:has(.c-dot[style*="var(--accent2)"]).touch-active {
   border-color: var(--accent2);
+  background: linear-gradient(135deg, #100f1f 0%, #0d1219 100%);
 }
 
 .c-card:has(.c-dot[style*="var(--accent4)"]):hover,
 .c-card:has(.c-dot[style*="var(--accent4)"]).touch-active {
   border-color: var(--accent3);
+  background: linear-gradient(135deg, #1a1208 0%, #0d1219 100%);
 }
  
  
